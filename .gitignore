@@ -102,5 +102,5 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-# Output file with the game
-game
+# Output file with the game, log file
+game*

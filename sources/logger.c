@@ -15,7 +15,7 @@ void log_message(char* message, int severity, int global_severity){
 	FILE *fptr;
 
 	fptr = fopen("./game.log", "a");
-	fprintf(fptr,"[%s]:%s\n",s, message);
+	fprintf(fptr,"[%s][pid:%d]:%s\n",s, getpid(), message);
 	fclose(fptr);
 }
 

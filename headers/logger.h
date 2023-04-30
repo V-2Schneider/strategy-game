@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
 
 #define SEVERITY_INFO 1
 #define SEVERITY_DEBUG 2
