@@ -1,2 +1,2 @@
-game: pipes.c resources.c
+game: ./sources/pipes.c ./sources/resources.c
 	gcc -o $@ $^ -Iheaders
