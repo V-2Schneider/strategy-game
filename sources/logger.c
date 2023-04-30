@@ -2,8 +2,8 @@
 
 
 
-void log_message(char* message, int severity, int global_severity){
-	if (global_severity < severity){
+void log_message(char* message, int severity){
+	if (GLOBAL_SEVERITY < severity){
 		return;
 	}
 
@@ -19,4 +19,8 @@ void log_message(char* message, int severity, int global_severity){
 	fclose(fptr);
 }
 
+/*
+struct Logger set_up_logging(int global_severity){
+	struct Logger logger;
+}*/
 

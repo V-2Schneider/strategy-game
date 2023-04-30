@@ -7,6 +7,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include "logger.h"
 
 void produceResource(int resourceRate, int fd_resource_write)
 {
@@ -38,7 +39,9 @@ void produceAndSaveResource(struct Resource *resource)
 			while(true){
 				char buffer_resource[80];
 				read(fd_resource[0], buffer_resource, sizeof(buffer_resource));
-				printf("We have produced %s %s.\n", buffer_resource, resource->resourceName);
+				char log_buffer[100];
+				snprintf(log_buffer, 100, "We have produced %s %s.", buffer_resource, resource->resourceName);
+				log_message(log_buffer, SEVERITY_INFO); 
 			}
 		} 
 		
