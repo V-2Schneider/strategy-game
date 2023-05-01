@@ -15,4 +15,6 @@ void produceResource(int resourceRate, int fd_resource_write);
 
 void produceAndSaveResource(struct Resource *resource);
 
+void setAllResources();
+
 #endif

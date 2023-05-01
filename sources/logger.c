@@ -19,8 +19,4 @@ void log_message(char* message, int severity){
 	fclose(fptr);
 }
 
-/*
-struct Logger set_up_logging(int global_severity){
-	struct Logger logger;
-}*/
 

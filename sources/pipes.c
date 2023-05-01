@@ -8,31 +8,17 @@
 #include "logger.h"
 
 
-void forkExample()
+void mainLoop()
 {
 
 	int fd[2], nbytes;
 	pipe(fd);
 	char buffer[80];
-	int currentRateWood = 10;
-	//struct Logger logger;
-	int global_severity = 1;
-	if (fork() == 0)
+	if (fork() == 0) // this is a child process that sets up production of materials
 	{
 		close(fd[0]);
 		log_message("This is the child process", SEVERITY_INFO);
-		struct Resource wood;
-		strcpy(wood.resourceName, "wood");
-		wood.resourceRate = 5;
-		produceAndSaveResource(&wood);
-		struct Resource stone;
-		strcpy(stone.resourceName, "stone");
-		stone.resourceRate = 1;
-		produceAndSaveResource(&stone);
-		struct Resource wheat;
-		strcpy(wheat.resourceName, "wheat");
-		wheat.resourceRate = 7;
-		produceAndSaveResource(&wheat);
+		setAllResources();
 		sleep(10);
 		exit(0);
 		
@@ -50,7 +36,7 @@ void forkExample()
 int main(int argc, char* argv[])
 {
 
-	forkExample();
+	mainLoop();
 
 	return 0;
 }

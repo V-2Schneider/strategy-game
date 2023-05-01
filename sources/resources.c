@@ -1,6 +1,4 @@
 #include "resources.h"
-
-
 #include <stdio.h>
 #include <sys/types.h>
 #include <unistd.h>
@@ -8,6 +6,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "logger.h"
+
 
 void produceResource(int resourceRate, int fd_resource_write)
 {
@@ -46,4 +45,20 @@ void produceAndSaveResource(struct Resource *resource)
 		} 
 		
 	}
+}
+
+void setAllResources()
+{
+	struct Resource wood;
+	strcpy(wood.resourceName, "wood");
+	wood.resourceRate = 5;
+	produceAndSaveResource(&wood);
+	struct Resource stone;
+	strcpy(stone.resourceName, "stone");
+	stone.resourceRate = 1;
+	produceAndSaveResource(&stone);
+	struct Resource wheat;
+	strcpy(wheat.resourceName, "wheat");
+	wheat.resourceRate = 7;
+	produceAndSaveResource(&wheat);
 }
