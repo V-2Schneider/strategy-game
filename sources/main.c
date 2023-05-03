@@ -6,7 +6,7 @@
 #include <stdbool.h>
 #include "resources.h"
 #include "logger.h"
-
+#include "console.h"
 
 void mainLoop()
 {
@@ -27,6 +27,7 @@ void mainLoop()
 		close(fd[1]);
 		printf("\n");
 		log_message("This is the parent process", SEVERITY_INFO);
+		writeToConsole("Test message", true);
 		while(true){
 			// do nothing right now
 		}
