@@ -1,2 +1,2 @@
-game: ./sources/main.c ./sources/resources.c ./sources/logger.c ./sources/console.c
+game: ./sources/*.c
 	gcc -o $@ $^ -Iheaders
