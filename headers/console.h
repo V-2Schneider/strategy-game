@@ -4,8 +4,8 @@
 #include <stdio.h> 
 #include <stdbool.h>
 
-void writeToConsole(char message[], bool waitForInput);
+void WriteToConsole(char message[], bool waitForInput);
 
-void writeToConsoleBasic(char message[]);
+void WriteToConsoleBasic(char message[]);
 
 #endif

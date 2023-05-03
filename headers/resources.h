@@ -4,17 +4,18 @@
 
 #define NORMAL_RATE 10;
 
-struct Resource {
+struct Resource 
+{
 	int resourceRate;
 	char resourceName[20];
 	int resourceAmount;
 };
 
 
-void produceResource(int resourceRate, int fd_resource_write);
+void ProduceResource(int resourceRate, int fd_resource_write);
 
-void produceAndSaveResource(struct Resource *resource);
+void ProduceAndSaveResource(struct Resource *resource);
 
-void setAllResources();
+void SetAllResources();
 
 #endif

@@ -8,7 +8,7 @@
 #include "logger.h"
 
 
-void produceResource(int resourceRate, int fd_resource_write)
+void ProduceResource(int resourceRate, int fd_resource_write)
 {
 	while(true)
 	{
@@ -20,7 +20,7 @@ void produceResource(int resourceRate, int fd_resource_write)
 	}
 }
 
-void produceAndSaveResource(struct Resource *resource)
+void ProduceAndSaveResource(struct Resource *resource)
 {
 	
 	char resources[80];
@@ -29,7 +29,7 @@ void produceAndSaveResource(struct Resource *resource)
 	if (fork() == 0)
 	{
 		close(fd_resource[0]);
-		produceResource(resource->resourceRate, fd_resource[1]);
+		ProduceResource(resource->resourceRate, fd_resource[1]);
 	} else {
 		close(fd_resource[1]);
 		if (fork() == 0)
@@ -40,25 +40,25 @@ void produceAndSaveResource(struct Resource *resource)
 				read(fd_resource[0], buffer_resource, sizeof(buffer_resource));
 				char log_buffer[100];
 				snprintf(log_buffer, 100, "We have produced %s %s.", buffer_resource, resource->resourceName);
-				log_message(log_buffer, SEVERITY_INFO); 
+				LogMessage(log_buffer, SEVERITY_INFO); 
 			}
 		} 
 		
 	}
 }
 
-void setAllResources()
+void SetAllResources()
 {
 	struct Resource wood;
 	strcpy(wood.resourceName, "wood");
 	wood.resourceRate = 5;
-	produceAndSaveResource(&wood);
+	ProduceAndSaveResource(&wood);
 	struct Resource stone;
 	strcpy(stone.resourceName, "stone");
 	stone.resourceRate = 1;
-	produceAndSaveResource(&stone);
+	ProduceAndSaveResource(&stone);
 	struct Resource wheat;
 	strcpy(wheat.resourceName, "wheat");
 	wheat.resourceRate = 7;
-	produceAndSaveResource(&wheat);
+	ProduceAndSaveResource(&wheat);
 }

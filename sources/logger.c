@@ -2,8 +2,10 @@
 
 
 
-void log_message(char* message, int severity){
-	if (GLOBAL_SEVERITY < severity){
+void LogMessage(char* message, int severity)
+{
+	if (GLOBAL_SEVERITY < severity)
+	{
 		return;
 	}
 

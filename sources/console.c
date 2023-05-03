@@ -1,7 +1,8 @@
 #include "console.h"
 
 
-void writeToConsole(char message[], bool waitForInput){
+void WriteToConsole(char message[], bool waitForInput)
+{
 	printf("%s\n", message);
 	if (waitForInput)
 	{
@@ -10,6 +11,7 @@ void writeToConsole(char message[], bool waitForInput){
 	}
 }
 
-void writeToConsoleBasic(char message[]){
-	writeToConsole(message, false);
+void WriteToConsoleBasic(char message[])
+{
+	WriteToConsole(message, false);
 }

@@ -8,7 +8,7 @@
 #include "logger.h"
 #include "console.h"
 
-void mainLoop()
+void MainLoop()
 {
 
 	int fd[2], nbytes;
@@ -17,8 +17,8 @@ void mainLoop()
 	if (fork() == 0) // this is a child process that sets up production of materials
 	{
 		close(fd[0]);
-		log_message("This is the child process", SEVERITY_INFO);
-		setAllResources();
+		LogMessage("This is the child process", SEVERITY_INFO);
+		SetAllResources();
 		sleep(10);
 		exit(0);
 		
@@ -26,8 +26,8 @@ void mainLoop()
 	{
 		close(fd[1]);
 		printf("\n");
-		log_message("This is the parent process", SEVERITY_INFO);
-		writeToConsole("Test message", true);
+		LogMessage("This is the parent process", SEVERITY_INFO);
+		WriteToConsole("Test message", true);
 		while(true){
 			// do nothing right now
 		}
@@ -37,7 +37,7 @@ void mainLoop()
 int main(int argc, char* argv[])
 {
 
-	mainLoop();
+	MainLoop();
 
 	return 0;
 }
