@@ -3,11 +3,12 @@
 
 
 #define NORMAL_RATE 10;
+typedef char RES_NAME[20];
 
 struct Resource 
 {
 	int resourceRate;
-	char resourceName[20];
+	RES_NAME resourceName;
 	int resourceAmount;
 };
 
