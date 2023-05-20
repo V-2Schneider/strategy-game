@@ -15,3 +15,16 @@ void WriteToConsoleBasic(char message[])
 {
 	WriteToConsole(message, false);
 }
+
+void ReadMessageFromFile(char messageID[], char **buffer){
+	FILE *messages;
+	messages = fopen("../messages.txt", "r");
+
+	while(fgets(*buffer, BUFFER_LENGTH, messages)){
+		if (strncmp(messageID, *buffer, MESSAGE_ID_LENGTH) == 0){
+			*buffer+=MESSAGE_ID_LENGTH;
+			break;
+		}
+	}
+	
+}

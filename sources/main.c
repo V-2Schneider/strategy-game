@@ -36,7 +36,9 @@ void MainLoop()
 
 int main(int argc, char* argv[])
 {
-
+	char buffer[BUFFER_LENGTH];	
+	ReadMessageFromFile("00000", &buffer);
+	//WriteToConsoleBasic(buffer);
 	MainLoop();
 
 	return 0;
